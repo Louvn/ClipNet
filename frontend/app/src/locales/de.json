@@ -10,7 +10,9 @@
         "add": "Hinzufügen",
         "thereAre_one": "Es gibt",
         "thereAre_other": "Es gibt",
-        "learnMore": "Mehr erfahren"
+        "learnMore": "Mehr erfahren",
+        "no": "Nein",
+        "yes": "Ja"
     },
 
     "actions": {
@@ -110,10 +112,17 @@
         "latestChanges": "Zuletzt bearbeitet",
         "mostLiked": "Beliebteste Artikel",
         "yourMostLiked": "Deine beliebtesten Artikel",
-        "revisions": "Revisionen",
         "revisionCounter": "Revision #{{count}}",
         "createdByUser": "Erstellt {{time}} von {{user}}",
         "lastEditedByUser": "Zuletzt bearbeitet {{time}} von {{user}}"
+    },
+
+    "revision": {
+        "title": "Revisionen",
+        "oldRevisionWarning": "Du betrachtest eine ältere Version dieses Artikels",
+        "noSummary": "Keine Zusammenfassung",
+        "restore": "Wiederherstellen",
+        "restoreInfo": "Möchtest du diese Version des Artikels wiederherstellen? Die Aktuelle geht dabei nicht verloren."
     },
 
     "draft": {
@@ -162,7 +171,8 @@
         "missingTitleOrContent": "Titel oder Inhalt fehlt.",
         "deletionProposed": "Löschung beantragt.",
         "ErrorWhileUploadingFile": "Fehler beim Hochladen der Datei.", 
-        "uploadedFile": "Datei erfolgreich hochgeladen."
+        "uploadedFile": "Datei erfolgreich hochgeladen.",
+        "revisionRestored": "Artikel wurde erfolgreich auf diese Version zurückgesetzt."
     },
 
     "placeholder": {

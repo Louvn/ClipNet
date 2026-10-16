@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 import SearchResultsCard from "../../features/search/components/SearchResultsCard";
-import Medium from "../../components/Medium";
+import Medium from "components/Medium";
 import { useTranslation } from "react-i18next";
-import StatisticCards from "../../components/StatisticCards/StatisticCards";
+import StatisticCards from "components/StatisticCards/StatisticCards";
 import { useAnnouncements } from "../../hooks/api/useAnnouncements";
 import { Link } from "react-router-dom";
 import { useImageIndex } from "../../context/ImageIndexContext";

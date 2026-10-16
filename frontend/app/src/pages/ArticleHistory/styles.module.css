@@ -1,0 +1,39 @@
+.HistoryPageRoot {
+    max-width: 800px;
+}
+.TopCenter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.HistoryHeading {
+    font-weight: 400;
+}
+
+.Date {
+    margin: 24px 0 12px 4px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.Revision {
+    background-color: var(--cards);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    gap: 32px;
+    text-align: center;
+}
+.Revision .ID {
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.Revision .User {
+    color: green;
+}

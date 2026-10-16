@@ -1,4 +1,4 @@
-import menuImg from "../../assets/icons/menu.png"
+import menuImg from "assets/icons/menu.png"
 import styles from "./styles.module.css"
 import {useState} from "react"
 import DarkOverlay from "../DarkOverlay";
@@ -6,12 +6,12 @@ import { useAuth } from "../../context/AuthContext";
 import ThemeButton from "../ThemeButton";
 import { useTranslation } from "react-i18next";
 import MenuOption from "../MenuOption";
-import homeIcon from "../../assets/icons/home.png"
-import randomIcon from "../../assets/icons/random.png";
-import createIcon from "../../assets/icons/create.png";
-import userIcon from "../../assets/icons/user.png";
-import settingsIcon from "../../assets/icons/settings.png";
-import logoutIcon from "../../assets/icons/logout.png";
+import homeIcon from "assets/icons/home.png"
+import randomIcon from "assets/icons/random.png";
+import createIcon from "assets/icons/create.png";
+import userIcon from "assets/icons/user.png";
+import settingsIcon from "assets/icons/settings.png";
+import logoutIcon from "assets/icons/logout.png";
 import { useWikiIndex } from "../../context/WikiIndexContext";
 import { useNavigate } from "react-router-dom";
 

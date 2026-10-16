@@ -2,77 +2,37 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useArticle } from "../../hooks/api/useArticle";
 
-import ActionButton from "../../components/ActionButton";
-import Detail from "../../components/Detail";
-import Loader from "../../components/Loader";
+import ActionButton from "components/ActionButton";
+import Detail from "components/Detail";
+import Loader from "components/Loader";
 
-import wikitextToJsx from "../../wikitext-engine";
+import editIcon from "assets/icons/edit.png";
+import revisionsIcon from "assets/icons/revisions.png";
+import permissionsIcon from "assets/icons/permissions.png";
 
-import editIcon from "../../assets/icons/edit.png";
-import revisionsIcon from "../../assets/icons/revisions.png";
-import permissionsIcon from "../../assets/icons/permissions.png";
-
-import createdIcon from "../../assets/icons/created.png"
-import revisionIcon from "../../assets/icons/revision.png";
-import updatedIcon from "../../assets/icons/updated.png";
-import Medium from "../../components/Medium";
-import SimpleButton from "../../components/SimpleButton";
+import createdIcon from "assets/icons/created.png"
+import revisionIcon from "assets/icons/revision.png";
+import updatedIcon from "assets/icons/updated.png";
+import Medium from "components/Medium";
 import { useAuth } from "../../context/AuthContext";
 import LikeButton from "../../features/articles/components/LikeButton";
 import ShareButton from "../../features/articles/components/ShareButton";
-import FormattingOptions from "../../features/editor/components/FormattingOptions";
-import { useRef, useState } from "react";
-import { useAPI } from "../../hooks/api/useAPI";
-import { notificationTypeSuccess, useToastNotification } from "../../context/ToastNotificationContext";
-import { useComments } from "../../hooks/api/useComments";
-import Comment from "../../components/Comment";
 import { useTranslation } from "react-i18next";
 import { formatTimestamp } from "../../utils/formatTimestamp";
 import ReportButton from "../../features/articles/components/ReportButton";
+import ArticleView from "features/articles/components/ArticleView";
+import Sidebar from "features/articles/components/Sidebar";
+import CommentsSection from "features/comments/components/CommentsSection";
 
 
 function Article() {
 
-    const { slug } = useParams();
+    const {slug} = useParams();
     const {t} = useTranslation();
 
     const {article, loading, status} = useArticle(slug);
-    const {comments, commentsLoading, reloadComments} = useComments(article?.id);
-    const apiFetch = useAPI();
     const {user} = useAuth();
     const navigate = useNavigate();
-
-    // comments-related
-    const commentInputRef = useRef(null);
-    const [commentInput, setCommentInput] = useState("");
-    const [showCommentInput, setShowCommentInput] = useState(false);
-    const [postingComment, setPostingComment] = useState(false);
-    const toast = useToastNotification();
-
-    const postComment = () => {
-        if (!commentInput || !commentInput.trim()) return;
-        setPostingComment(true);
-
-        apiFetch("/create-comment", {
-            method: "POST",
-            body: JSON.stringify({
-                article_id: article.id,
-                content: commentInput
-            })
-        })
-            .then(res => {
-                if (res.ok) {
-                    toast(t("toast.commentPosted"), notificationTypeSuccess)
-                    reloadComments();
-
-                } else {
-                    toast(t("toast.commentCouldNotBePosted"));
-                }
-
-                setPostingComment(false);
-                setCommentInput("");
-            })
-    }
 
 
     // Loading Animation
@@ -86,9 +46,9 @@ function Article() {
     // Article Page 
     if (article && status !== 404) return <Medium className={styles.ArticlePageRoot}>
 
-        <aside className={styles.Sidebar}>
+        <Sidebar>
 
-            <section className={styles.SidebarSection}>
+            <section>
                 <h2>{t("common.details")}</h2>
 
                 <Detail text={t("article.revisionCounter", {count: article.revision_count})} icon={revisionIcon} />
@@ -104,7 +64,7 @@ function Article() {
                     />
             </section>
 
-            <section className={`${styles.SidebarSection} ${styles.Actions}`}>
+            <section>
                 <h2>{t("common.actions")}</h2>
 
                 <LikeButton article={article} />
@@ -117,50 +77,18 @@ function Article() {
                     (article.edit_permission === 1 || article.op.id === user.id || article.contributors.includes(user.id) || user.is_admin)
                     && <ActionButton icon={editIcon} onClick={() => navigate(`/wiki/${slug}/edit`)}>{t("actions.edit")}</ActionButton>
                 }
-                <ActionButton icon={revisionsIcon} onClick={() => navigate(`/wiki/${slug}/history`)}>{t("article.revisions")}</ActionButton>
+                <ActionButton icon={revisionsIcon} onClick={() => navigate(`/wiki/${slug}/history`)}>{t("revision.title")}</ActionButton>
                 {   (article.op.id === user.id || user.is_admin)
                     && <ActionButton icon={permissionsIcon} onClick={() => navigate(`/wiki/${slug}/perms`)}>{t("permissions.title")}</ActionButton>
                 }
 
             </section>
 
-        </aside>
+        </Sidebar>
 
-        <main className={styles.ArticleMain}>
-            <h1 className={styles.ArticleMainTitle}>{article.current_revision.title}</h1>
-            <hr />
-            <div className={styles.ArticleMainContent}>{wikitextToJsx(article.current_revision.content)}</div>
-        </main>
+        <ArticleView rev={article.current_revision} />
 
-        <div className={styles.CommentSection}>
-            <h2>
-                {t("comments.title")}
-                <SimpleButton onClick={() => setShowCommentInput(!showCommentInput)}>{showCommentInput ? t("actions.close") : t("comments.add")}</SimpleButton>
-            </h2>
-            <hr />
-
-            {showCommentInput && <div className={styles.CommentEditor}>
-                <FormattingOptions 
-                    inputRef={commentInputRef}
-                    textState={commentInput}
-                    changeTextState={setCommentInput}
-                    fullMode={false}
-                    />
-                
-                <input type="text" ref={commentInputRef} value={commentInput} onChange={(e) => setCommentInput(e.currentTarget.value)} placeholder={t("placeholder.comment")} />
-                <SimpleButton onClick={postComment} disabled={postingComment} className={styles.PostButton}>{t("comments.post")}</SimpleButton>
-            </div>}
-
-            <div className={styles.Comments}>
-
-                {!commentsLoading && comments?.length > 0 && comments?.map(e => <Comment data={e} key={e.created_at} />)}
-
-                {commentsLoading && <Loader />}
-
-                {!commentsLoading && comments?.length === 0 && <em>{t("comments.noComments")}</em>}
-            </div>
-
-        </div>
+        <CommentsSection article={article}/>
 
     </Medium>
 }

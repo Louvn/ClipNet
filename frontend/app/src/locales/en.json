@@ -10,7 +10,9 @@
         "add": "Add",
         "thereAre_one": "There is",
         "thereAre_other": "There are",
-        "learnMore": "Learn More"
+        "learnMore": "Learn More",
+        "no": "No",
+        "yes": "Yes"
     },
 
     "actions": {
@@ -110,10 +112,17 @@
         "latestChanges": "Latest Changes",
         "mostLiked": "Most Liked Articles",
         "yourMostLiked": "Your Most Liked Articles",
-        "revisions": "Revisions",
         "revisionCounter": "Revision #{{count}}",
         "createdByUser": "Created {{time}} by {{user}}",
         "lastEditedByUser": "Last edited {{time}} by {{user}}"
+    },
+
+    "revision": {
+        "title": "Revisions",
+        "oldRevisionWarning": "You are viewing an older version of this article",
+        "noSummary": "No summary",
+        "restore": "Restore",
+        "restoreInfo": "Do you want to restore this version of the article? The current version will not be lost."
     },
 
     "draft": {
@@ -162,7 +171,8 @@
         "missingTitleOrContent": "Title or content is missing.",
         "deletionProposed": "Deletion proposed.",
         "ErrorWhileUploadingFile": "Error while uploading the file.", 
-        "uploadedFile": "File uploaded successfully."
+        "uploadedFile": "File uploaded successfully.",
+        "revisionRestored": "Article successfully restored to this version."
     },
 
     "placeholder": {

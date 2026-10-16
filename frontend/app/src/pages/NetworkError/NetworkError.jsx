@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import SimpleButton from "../../components/SimpleButton";
+import SimpleButton from "components/SimpleButton";
 import styles from "./styles.module.css";
-import icon from "../../assets/icons/network_error.svg";
+import icon from "assets/icons/network_error.svg";
 import { useTranslation } from "react-i18next";
 
 function NetworkError() {

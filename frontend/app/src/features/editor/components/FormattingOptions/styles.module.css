@@ -22,9 +22,10 @@
     height: 24px;
 }
 
-.PreviewButton {
+.PreviewButton.PreviewButton {
     color: var(--secondary-text-color);
     margin-left: auto;
+    padding: 4px;
 }
 .PreviewButton:hover {
     background-color: rgba(0,0,0,.05);

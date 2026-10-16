@@ -6,6 +6,7 @@ export function useRevisions(slug) {
     const [loading, setLoading] = useState(true);
     const [revisions, setRevisions] = useState(null);
     const [error, setError] = useState(null);
+    const [status, setStatus] = useState(null);
 
     const apiFetch = useAPI();
 
@@ -16,7 +17,10 @@ export function useRevisions(slug) {
         apiFetch(
             `/get-article-revisions?${new URLSearchParams({ slug: slug })}`
         )
-            .then(res => res.json())
+            .then(res => {
+                setStatus(res.status);
+                return res.json();
+            })
             .then(data => setRevisions(data))
 
             .catch(setError)
@@ -25,5 +29,5 @@ export function useRevisions(slug) {
 
     }, [apiFetch, slug]);
 
-    return {revisions, setRevisions, loading, error};
+    return {revisions, status, loading, error};
 }

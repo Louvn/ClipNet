@@ -4,16 +4,17 @@ import { useArticle } from "../../hooks/api/useArticle";
 import { useEffect, useState } from "react";
 import WikiTextEditor from "../../features/editor/components/WikiTextEditor";
 import { useAPI } from "../../hooks/api/useAPI";
-import Medium from "../../components/Medium";
-import Loader from "../../components/Loader";
-import PopUp from "../../components/PopUp";
-import SimpleButton from "../../components/SimpleButton";
+import Medium from "components/Medium";
+import Loader from "components/Loader";
+import PopUp from "components/PopUp";
+import SimpleButton from "components/SimpleButton";
 import { useToastNotification, notificationTypeSuccess } from "../../context/ToastNotificationContext";
 import { useTranslation } from "react-i18next";
-import LimitedInput from "../../components/LimitedInput";
-import useUndoRedo from "../../features/editor/features/editor/hooks/useUndoRedo";
+import LimitedInput from "components/LimitedInput";
+import useUndoRedo from "../../features/editor/hooks/useUndoRedo";
 import { useCache } from "../../context/CacheContext";
 import i18n from "../../i18n";
+import ConfirmPopUp from "components/ConfirmPopUp";
 
 function ArticleEditor() {
 
@@ -202,15 +203,14 @@ function ArticleEditor() {
             <SimpleButton onClick={publish} className={styles.PublishPopUpButton}>{t("article.publish")}</SimpleButton>
         </PopUp>}
 
-        {isDraftPopUpOpen && <PopUp closingMethod={() => setDraftPopUpOpen(false)} className={styles.DraftPopUp}>
-            <h2 className={styles.PopUpHeading}>{t("draft.draftFound")}</h2>
-            <p>{t("draft.info")}</p>
-
-            <div className={styles.DraftPopUpButtons}>
-                <SimpleButton onClick={() => {setUseExistingDraft(true); setDraftPopUpOpen(false)}} className={styles.DraftPopUpButton}>{t("draft.use")}</SimpleButton>
-                <SimpleButton onClick={() => {setUseExistingDraft(false); setDraftPopUpOpen(false)}} className={styles.DraftPopUpButtonRed}>{t("draft.overwrite")}</SimpleButton>
-            </div>
-        </PopUp>}
+        {isDraftPopUpOpen && <ConfirmPopUp
+            title={t("draft.draftFound")}
+            text={t("draft.info")}
+            confirmText={t("draft.use")}
+            cancelText={t("draft.overwrite")}
+            onConfirm={() => {setUseExistingDraft(true); setDraftPopUpOpen(false)}}
+            onCancel={() => {setUseExistingDraft(false); setDraftPopUpOpen(false)}}
+            />}
 
     </Medium>
 }

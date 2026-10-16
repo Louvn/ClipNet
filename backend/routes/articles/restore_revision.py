@@ -2,6 +2,7 @@ from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
 from fastapi import Depends, HTTPException
 from backend.models import Revision
+from backend.core.security.permissions import is_user_allowed_to_edit
 
 def restore_revision(revision_id: int, db = Depends(get_db), user = Depends(get_current_user)):
 
@@ -9,6 +10,9 @@ def restore_revision(revision_id: int, db = Depends(get_db), user = Depends(get_
 
     if not old_revision or old_revision.article.is_deleted:
         raise HTTPException(404, "REVISION_NOT_FOUND")
+
+    if not is_user_allowed_to_edit(db, user, old_revision.article):
+            raise HTTPException(status_code=403, detail="NOT_ALLOWED")
 
     if old_revision.article.current_revision_id == revision_id:
         raise HTTPException(401, "CANNOT_RESTORE_CURRENT_REVISION")

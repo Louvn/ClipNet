@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import LimitedInput from "../../components/LimitedInput";
-import Loader from "../../components/Loader";
-import Medium from "../../components/Medium";
-import SimpleButton from "../../components/SimpleButton";
+import LimitedInput from "components/LimitedInput";
+import Loader from "components/Loader";
+import Medium from "components/Medium";
+import SimpleButton from "components/SimpleButton";
 import { notificationTypeSuccess, useToastNotification } from "../../context/ToastNotificationContext";
 import { useAPI } from "../../hooks/api/useAPI";
 import { useSettings } from "../../hooks/api/useSettings";
@@ -10,7 +10,7 @@ import languages from "../../locales/_languages.json";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
 import styles from "./styles.module.css";
-import Select from "../../components/Select";
+import Select from "components/Select";
 
 function Settings() {
 

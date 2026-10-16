@@ -10,7 +10,9 @@
         "add": "Añadir",
         "thereAre_one": "Hay",
         "thereAre_other": "Hay",
-        "learnMore": "Más información"
+        "learnMore": "Más información",
+        "no": "No",
+        "yes": "Sí"
     },
 
     "actions": {
@@ -110,10 +112,17 @@
         "latestChanges": "Editados recientemente",
         "mostLiked": "Artículos más populares",
         "yourMostLiked": "Tus artículos más populares",
-        "revisions": "Revisiones",
         "revisionCounter": "Revisión #{{count}}",
         "createdByUser": "Creado {{time}} por {{user}}",
         "lastEditedByUser": "Editado por última vez {{time}} por {{user}}"
+    },
+
+    "revision": {
+        "title": "Revisiones",
+        "oldRevisionWarning": "Estás viendo una versión anterior de este artículo",
+        "noSummary": "Sin resumen",
+        "restore": "Restaurar",
+        "restoreInfo": "¿Quieres restaurar esta versión del artículo? La versión actual no se perderá."
     },
 
     "draft": {
@@ -162,7 +171,8 @@
         "missingTitleOrContent": "Falta el título o el contenido.",
         "deletionProposed": "Eliminación solicitada.",
         "ErrorWhileUploadingFile": "Error al subir el archivo.", 
-        "uploadedFile": "Archivo subido correctamente."
+        "uploadedFile": "Archivo subido correctamente.",
+        "revisionRestored": "El artículo se ha restaurado correctamente a esta versión."
     },
 
     "placeholder": {

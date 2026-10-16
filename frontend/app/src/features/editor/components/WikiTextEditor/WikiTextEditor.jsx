@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import articleStyles from "pages/Article/styles.module.css";
+import articleStyles from "features/articles/components/ArticleView/styles.module.css";
 import FormattingOptions from "../FormattingOptions";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -40,7 +40,7 @@ function WikiTextEditor({title, content, setContent, setTitle, undo, redo}) {
             ref={textareaRef}
             />}
 
-        {isPreview && <div className={`${styles.Preview} ${articleStyles.ArticleMainContent}`}>{wikitextToJsx(content)}</div>}
+        {isPreview && <div className={`${styles.Preview} ${articleStyles.ArticleContent}`}>{wikitextToJsx(content)}</div>}
 
     </main>
 

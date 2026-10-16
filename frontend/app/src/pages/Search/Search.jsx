@@ -3,9 +3,9 @@ import { useSearch } from "../../hooks/api/useSearch";
 import { useEffect, useState } from "react";
 import SearchResult from "../../features/search/components/SearchResult";
 import styles from "./styles.module.css";
-import Medium from "../../components/Medium";
-import Loader from "../../components/Loader";
-import SimpleButton from "../../components/SimpleButton";
+import Medium from "components/Medium";
+import Loader from "components/Loader";
+import SimpleButton from "components/SimpleButton";
 import { useTranslation } from "react-i18next";
 
 const resultsLength = 20;

@@ -10,7 +10,9 @@
         "add": "Toevoegen",
         "thereAre_one": "Er is",
         "thereAre_other": "Er zijn",
-        "learnMore": "Meer informatie"
+        "learnMore": "Meer informatie",
+        "no": "Nee",
+        "yes": "Ja"
     },
 
     "actions": {
@@ -110,10 +112,17 @@
         "latestChanges": "Laatst bewerkt",
         "mostLiked": "Populairste artikelen",
         "yourMostLiked": "Jouw populairste artikelen",
-        "revisions": "Versies",
         "revisionCounter": "Versie #{{count}}",
         "createdByUser": "Aangemaakt {{time}} door {{user}}",
         "lastEditedByUser": "Laatst bewerkt {{time}} door {{user}}"
+    },
+
+    "revision": {
+        "title": "Revisies",
+        "oldRevisionWarning": "Je bekijkt een oudere versie van dit artikel",
+        "noSummary": "Geen samenvatting",
+        "restore": "Herstellen",
+        "restoreInfo": "Wil je deze versie van het artikel herstellen? De huidige versie gaat niet verloren."
     },
 
     "draft": {
@@ -162,7 +171,8 @@
         "missingTitleOrContent": "Titel of inhoud ontbreekt.",
         "deletionProposed": "Verwijdering aangevraagd.",
         "ErrorWhileUploadingFile": "Fout bij het uploaden van het bestand.", 
-        "uploadedFile": "Bestand succesvol geüpload."
+        "uploadedFile": "Bestand succesvol geüpload.",
+        "revisionRestored": "Het artikel is succesvol teruggezet naar deze versie."
     },
 
     "placeholder": {

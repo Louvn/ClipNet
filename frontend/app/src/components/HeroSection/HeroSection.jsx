@@ -1,6 +1,6 @@
 import { useStats } from "../../hooks/api/useStats";
 import styles from "./styles.module.css";
-import heroSectionIllustration from "../../assets/illustrations/knight.png";
+import heroSectionIllustration from "assets/illustrations/knight.png";
 
 function HeroSection() {
 

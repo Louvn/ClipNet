@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Navigate } from "react-router-dom";
 import { useState } from "react";
 import styles from "./styles.module.css";
-import Logo from "../../assets/logo-blue.png";
+import Logo from "assets/logo-blue.png";
 import { useAuth } from "../../context/AuthContext";
 
 function Login() {

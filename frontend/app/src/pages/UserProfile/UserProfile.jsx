@@ -1,10 +1,10 @@
 import styles from "./styles.module.css";
-import placeholderIcon from "../../assets/logo-white.png";
-import Medium from "../../components/Medium";
+import placeholderIcon from "assets/logo-white.png";
+import Medium from "components/Medium";
 import SearchResultsCard from "../../features/search/components/SearchResultsCard";
 import { useUser } from "../../hooks/api/useUser";
 import { Navigate, useParams } from "react-router-dom";
-import Loader from "../../components/Loader";
+import Loader from "components/Loader";
 import { useTranslation } from "react-i18next";
 import { formatTimestamp } from "../../utils/formatTimestamp";
 import wikitextToJsx from "../../wikitext-engine";

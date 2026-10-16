@@ -1,0 +1,16 @@
+.Sidebar {
+    position: sticky;
+    top: 80px;
+}
+.Sidebar section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 32px;
+}
+
+.Sidebar section h2 {
+    font-weight: 400;
+    font-size: 1.7em;
+    color: var(--secondary-text-color);
+}

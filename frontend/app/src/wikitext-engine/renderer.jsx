@@ -7,7 +7,7 @@ import { FORMAT } from "./formats.js";
 import { useWikiIndex } from "../context/WikiIndexContext.jsx";
 import { useUserIndex } from "../context/UserIndexContext.jsx";
 import styles from "./styles.module.css";
-import arrowImg from "../assets/icons/arrow.png";
+import arrowImg from "assets/icons/arrow.png";
 import { useImageIndex } from "../context/ImageIndexContext.jsx";
 
 function WikiLinkNode({ title, visibleTitle }) {

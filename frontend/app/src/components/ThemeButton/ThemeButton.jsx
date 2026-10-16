@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import sunIcon from "../../assets/icons/sun.png";
-import moonIcon from "../../assets/icons/moon.png";
+import sunIcon from "assets/icons/sun.png";
+import moonIcon from "assets/icons/moon.png";
 
 function ThemeButton({ className, ...props }) {
 
