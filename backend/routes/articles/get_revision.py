@@ -21,4 +21,4 @@ def get_revision(id: int, db = Depends(get_db), user = Depends(get_current_user)
             .first()
     )
 
-    return {"revision": RevisionOutData.model_validate(revision, from_attributes=True), "previous_revision_id": previous_revision.id}
+    return {"revision": RevisionOutData.model_validate(revision, from_attributes=True), "previous_revision_id": previous_revision.id if previous_revision else None}

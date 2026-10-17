@@ -70,7 +70,9 @@ function Revision() {
                     && <RestoreButton revision={revision} slug={slug} setLoading={setIsRestoring}/>
                 }
 
-                <ActionButton icon={diffIcon} onClick={() => navigate(`/wiki/${slug}/rev/${id}/diff/${previousRevisionId}`)}>{t("revision.diff")}</ActionButton>
+                {previousRevisionId && 
+                    <ActionButton icon={diffIcon} onClick={() => navigate(`/wiki/${slug}/rev/${id}/diff/${previousRevisionId}`)}>{t("revision.diff")}</ActionButton>
+                }
             </section>
 
         </Sidebar>

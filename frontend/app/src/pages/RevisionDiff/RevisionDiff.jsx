@@ -50,7 +50,7 @@ function RevisionDiff() {
         <div className={styles.TopBar}>
             <SimpleButton onClick={() => navigate(-1)}>← {t("common.back")}</SimpleButton>
             <Link to={`/wiki/${slug}/rev/${oldId}`}>#{oldId}</Link> → 
-            <Link to={`/wiki/${slug}/rev/${oldId}`}>#{oldId}</Link>
+            <Link to={`/wiki/${slug}/rev/${newId}`}>#{newId}</Link>
 
             <div className={styles.TopBarRight}>
                 <span style={{color: "green"}}>+{stats.added}</span> / 

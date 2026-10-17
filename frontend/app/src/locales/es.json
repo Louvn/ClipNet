@@ -123,7 +123,8 @@
         "noSummary": "Sin resumen",
         "restore": "Restaurar",
         "restoreInfo": "¿Quieres restaurar esta versión del artículo? La versión actual no se perderá.",
-        "restoring": "Restaurando versión..."
+        "restoring": "Restaurando versión...",
+        "diff": "Comparar"
     },
 
     "draft": {
