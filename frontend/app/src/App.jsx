@@ -22,6 +22,7 @@ import Banned from "./pages/Banned";
 import ImageLibraryPage from "./pages/ImageLibraryPage";
 import ArticleHistory from "./pages/ArticleHistory";
 import Revision from "./pages/Revision";
+import RevisionDiff from "pages/RevisionDiff";
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
                                 <Route path="/wiki/:slug/perms" element={<PermissionEditor />} />
                                 <Route path="/wiki/:slug/history" element={<ArticleHistory />} />
                                 <Route path="/wiki/:slug/rev/:id" element={<Revision />} />
+                                <Route path="/wiki/:slug/rev/:newId/diff/:oldId" element={<RevisionDiff />} />
 
                                 <Route path="/editor" element={<ArticleEditor />} />
                                 <Route path="/search" element={<Search />} />

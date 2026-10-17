@@ -56,8 +56,7 @@ router.add_api_route(
 router.add_api_route(
     "/get-revision",
     get_revision,
-    methods=["GET"],
-    response_model=RevisionOutData
+    methods=["GET"]
 )
 
 router.add_api_route(

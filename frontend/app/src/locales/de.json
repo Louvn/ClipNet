@@ -122,7 +122,9 @@
         "oldRevisionWarning": "Du betrachtest eine ältere Version dieses Artikels",
         "noSummary": "Keine Zusammenfassung",
         "restore": "Wiederherstellen",
-        "restoreInfo": "Möchtest du diese Version des Artikels wiederherstellen? Die Aktuelle geht dabei nicht verloren."
+        "restoreInfo": "Möchtest du diese Version des Artikels wiederherstellen? Die Aktuelle geht dabei nicht verloren.",
+        "restoring": "Version wird wiederhergestellt...",
+        "diff": "Versionsvergleich"
     },
 
     "draft": {

@@ -15,6 +15,7 @@ import useUndoRedo from "../../features/editor/hooks/useUndoRedo";
 import { useCache } from "../../context/CacheContext";
 import i18n from "../../i18n";
 import ConfirmPopUp from "components/ConfirmPopUp";
+import ActionLoading from "components/ActionLoading";
 
 function ArticleEditor() {
 
@@ -83,7 +84,7 @@ function ArticleEditor() {
     }
 
     // async function used in createArticle and editArticle
-    const reactToError = async (fallbackNotification, res) => {
+    const reactToError = async () => {
 
         setPublishing(false);
         setPopUpOpen(false);
@@ -147,10 +148,7 @@ function ArticleEditor() {
     </Medium>;
 
     // loading animation while publishing
-    if (isPublishing) return <Medium> 
-        <Loader />
-        <h2 className={styles.PublishingArticle}>{t("article.publishing")}</h2>
-    </Medium>;
+    if (isPublishing) return <ActionLoading text={t("article.publishing")} />;
 
     // not found
     if (status === 404) return <Navigate to="/404" />;

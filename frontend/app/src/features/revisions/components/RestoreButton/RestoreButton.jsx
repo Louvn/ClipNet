@@ -8,7 +8,7 @@ import ActionButton from "components/ActionButton";
 import ConfirmPopUp from "components/ConfirmPopUp";
 import { useTranslation } from "react-i18next";
 
-function RestoreButton({revision, slug}) {
+function RestoreButton({revision, slug, setLoading}) {
 
     const apiFetch = useAPI();
     const navigate = useNavigate();
@@ -19,10 +19,13 @@ function RestoreButton({revision, slug}) {
 
     const rollbackToRevision = async () => {
 
+        setLoading(true);
+
         const params = new URLSearchParams({ revision_id: revision.id });
         const res = await apiFetch(`/restore-revision?${params}`, { method: "PUT"});
 
         if (!res.ok) {
+            setLoading(false);
             return;
         }
 

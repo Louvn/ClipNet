@@ -20,10 +20,10 @@ export function useSearch(query, filters, sort_by, offset, length) {
             offset,
             length
         };
-        const urlParams = new URLSearchParams(body);
+        const params = JSON.stringify(body);
 
         // cached?
-        const cached = getCachedItem("search", urlParams);
+        const cached = getCachedItem("search", params);
         if (cached) {
             setLoading(false);
             return setResults(cached);
@@ -38,7 +38,7 @@ export function useSearch(query, filters, sort_by, offset, length) {
             .then(res => res.json())
             .then(data => {
                 setResults(data);
-                cacheItem("search", urlParams, data);
+                cacheItem("search", params, data);
             })
 
             .catch(setError)

@@ -15,22 +15,30 @@ import ArticleView from "features/articles/components/ArticleView";
 import Sidebar from "features/articles/components/Sidebar";
 import { useArticle } from "hooks/api/useArticle";
 import { useAuth } from "context/AuthContext";
+import { useState } from "react";
+import ActionLoading from "components/ActionLoading";
+import ActionButton from "components/ActionButton";
+import diffIcon from "assets/icons/diff.png";
 
 function Revision() {
 
     // article slug and revision id
     const {id, slug} = useParams();
     const navigate = useNavigate();
-    const {revision, loading: rLoading, status} = useRevision(id);
+    const {revision, previousRevisionId, loading: rLoading, status} = useRevision(id);
     const {article, loading: aLoading} = useArticle(slug);
     const {t} = useTranslation();
     const {user} = useAuth();
+    const [isRestoring, setIsRestoring] = useState(false);
+
 
     if (rLoading || aLoading) return <Medium>
         <Loader />
     </Medium>;
 
     if (status === 404) return navigate("/404");
+
+    if (isRestoring) return <ActionLoading text={t("revision.restoring")} />;
     
     if (!(aLoading || rLoading) && revision) return <Medium className={styles.ArticlePageRoot}>
         
@@ -59,8 +67,10 @@ function Revision() {
                 {
                     article?.current_revision.id !== Number(id)
                     && (article?.contributors.includes(user.id) || article?.edit_permission < 2 || article?.op.id === user.id || user.is_admin)
-                    && <RestoreButton revision={revision} slug={slug} />
+                    && <RestoreButton revision={revision} slug={slug} setLoading={setIsRestoring}/>
                 }
+
+                <ActionButton icon={diffIcon} onClick={() => navigate(`/wiki/${slug}/rev/${id}/diff/${previousRevisionId}`)}>{t("revision.diff")}</ActionButton>
             </section>
 
         </Sidebar>

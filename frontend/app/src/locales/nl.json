@@ -122,7 +122,8 @@
         "oldRevisionWarning": "Je bekijkt een oudere versie van dit artikel",
         "noSummary": "Geen samenvatting",
         "restore": "Herstellen",
-        "restoreInfo": "Wil je deze versie van het artikel herstellen? De huidige versie gaat niet verloren."
+        "restoreInfo": "Wil je deze versie van het artikel herstellen? De huidige versie gaat niet verloren.",
+        "restoring": "Versie wordt hersteld..."
     },
 
     "draft": {
