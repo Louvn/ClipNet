@@ -1,14 +1,17 @@
 // STEP 3
 // renderer reads the parsed WikiText to build the right JSX structure
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FORMAT } from "./formats.js";
 import { useWikiIndex } from "../context/WikiIndexContext.jsx";
 import { useUserIndex } from "../context/UserIndexContext.jsx";
 import styles from "./styles.module.css";
 import arrowImg from "assets/icons/arrow.png";
+import closeIcon from "assets/icons/delete-query.png"
 import { useImageIndex } from "../context/ImageIndexContext.jsx";
+import PopUp from "components/PopUp/index.js";
+import { useTranslation } from "react-i18next";
 
 function WikiLinkNode({ title, visibleTitle }) {
 
@@ -65,6 +68,8 @@ function ImageNode({ id, pipeArgs }) {
 
     const imageIndex = useImageIndex();
     const img = imageIndex.get(id);
+    const [fullscreen, setFullscreen] = useState(false);
+    const {t} = useTranslation();
 
     let width = "40%";
     let additionalClass = styles.Left;
@@ -79,10 +84,21 @@ function ImageNode({ id, pipeArgs }) {
         else { boxDescription = arg }
     });
 
-    return <div style={{ width: width }} className={`${styles.ImageBox} ${additionalClass}`}>
-        <img src={img.url} alt="" className="noInvert" />
-        <p>{boxDescription || img.description}</p>
-    </div>;
+    return <>
+        <div style={{ width: width }} className={`${styles.ImageBox} ${additionalClass}`} onClick={() => setFullscreen(true)}>
+            <img src={img.url} alt="" className="noInvert" />
+            <p>{boxDescription || img.description}</p>
+        </div>
+
+        {fullscreen && <PopUp closingMethod={() => setFullscreen(false)} className={styles.ImageFullscreen}>
+            <button onClick={() => setFullscreen(false)} className={styles.CloseButton}>
+                <img src={closeIcon} alt={t("actions.close")} />
+            </button>
+
+            <img src={img.url} alt="" className="noInvert" />
+            <p>{boxDescription || img.description}</p>
+        </PopUp>}
+    </>;
 }
 
 function UrlNode({ href, visibleText }) {

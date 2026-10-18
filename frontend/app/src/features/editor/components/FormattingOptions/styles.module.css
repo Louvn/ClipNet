@@ -22,10 +22,21 @@
     height: 24px;
 }
 
-.PreviewButton.PreviewButton {
-    color: var(--secondary-text-color);
+.PreviewButton {
+    all: unset;
+    color: #444;
     margin-left: auto;
-    padding: 4px;
+    color: #444;
+    margin-left: auto;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.8;
+    border-radius: 4px;
+}
+.PreviewButton img {
+    height: 100%;
 }
 .PreviewButton:hover {
     background-color: rgba(0,0,0,.05);

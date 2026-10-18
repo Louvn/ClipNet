@@ -67,6 +67,34 @@
     margin-right: 0;
 }
 
+.ImageFullscreen.ImageFullscreen {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+}
+.CloseButton {
+    all: unset;
+    height: 36px;
+    margin-left: auto;
+}
+.CloseButton img {
+    height: 100%;
+}
+.ImageFullscreen > img {
+    margin: 20px 64px;
+    max-height: 80%;
+    width: auto;
+    object-fit: contain;
+}
+.ImageFullscreen p {
+    color: #ddd;
+    margin: 0 64px;
+    text-align: center;
+}
+
 .Table {
     overflow: hidden;
     overflow-x: scroll;

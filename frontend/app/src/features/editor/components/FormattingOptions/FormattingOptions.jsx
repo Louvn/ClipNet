@@ -10,8 +10,8 @@ import linkIcon from "assets/icons/format_link.png";
 import mentionIcon from "assets/icons/format_mention.png";
 import tableIcon from "assets/icons/format_table.png";
 import imageIcon from "assets/icons/format_image.png";
+import previewIcon from "assets/icons/preview.png";
 import { useTranslation } from "react-i18next";
-import SimpleButton from "components/SimpleButton";
 import { useState } from "react";
 import PopUp from "components/PopUp";
 import ImageLibrary from "features/images/components/ImageLibrary";
@@ -105,7 +105,12 @@ function FormattingOptions({ inputRef, textState, changeTextState, undo = null, 
             </button>
         </section>}
 
-        {previewButton && <SimpleButton onClick={previewButton} className={styles.PreviewButton}>{t("editor.preview")}</SimpleButton>}
+        {previewButton && 
+            <button onClick={previewButton} className={styles.PreviewButton}>
+                <img src={previewIcon} alt="" />
+                {t("editor.preview")}
+            </button>
+        }
 
         {imagePopUpOpen && <PopUp className={styles.ImagePopUp} closingMethod={() => setImagePopUpOpen(false)}>
             <ImageLibrary onUseImage={insertImage} onClose={() => setImagePopUpOpen(false)} />
