@@ -87,7 +87,8 @@
         "title": "Comments",
         "add": "Add Comment",
         "post": "Post Comment",
-        "noComments": "No comments yet"
+        "noComments": "No comments yet",
+        "reply": "Reply"
     },
 
     "image": { 

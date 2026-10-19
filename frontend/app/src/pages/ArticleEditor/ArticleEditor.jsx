@@ -76,11 +76,14 @@ function ArticleEditor() {
         const data = await res.json();
 
         localStorage.removeItem(`draft${article?.id || ""}`);
-        cacheItem("articles", slug, isEdit ? null : data);
+
+        // article edit delivers revision only => no slug in data, but in params
+        // when edited it has to delete cached article (cannot be set directly because it isn't whole article data)
+        cacheItem("articles", data.slug || slug, isEdit ? null : data);
         clearCache("search");
 
         toast(t("toast.articlePublished"), notificationTypeSuccess);
-        navigate(`/wiki/${slug}`);
+        navigate(`/wiki/${data.slug || slug}`);
     }
 
     // async function used in createArticle and editArticle

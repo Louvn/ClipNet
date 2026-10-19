@@ -87,7 +87,8 @@
         "title": "Reacties",
         "add": "Reactie toevoegen",
         "post": "Versturen",
-        "noComments": "Er zijn nog geen reacties"
+        "noComments": "Er zijn nog geen reacties",
+        "reply": "Reageren"
     },
 
     "image": { 

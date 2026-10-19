@@ -1,0 +1,18 @@
+.CommentEditor {
+    width: 70%;
+    height: 128px;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #ccc;
+}
+.CommentEditor input {
+    all: unset;
+    width: 85%;
+    height: 100%;
+}
+.CommentEditor .PostButton {
+    margin-left: auto;
+}

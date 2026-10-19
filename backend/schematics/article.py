@@ -1,5 +1,5 @@
-from pydantic import BaseModel, constr, Field, field_validator
-from typing import Optional, List
+from pydantic import BaseModel, constr, field_validator
+from typing import Optional
 from .content_type import ContentType
 from .revision import RevisionOutData
 from .user import UserOutData
@@ -18,8 +18,8 @@ class ArticleOutData(BaseModel):
     first_revision: RevisionOutData
     revision_count: Optional[int] = None
     edit_permission: int
-    contributors: List[int] = None
-    liked_by: List[int] = None
+    contributors: Optional[list[int]] = None
+    liked_by: Optional[list[int]] = None
 
     @field_validator("liked_by", "contributors", mode="before")
     @classmethod
@@ -27,10 +27,10 @@ class ArticleOutData(BaseModel):
         return [el.user_id for el in value]
 
 class ArticleGetData(BaseModel):
-    id: Optional[int] = Field(None)
-    slug: Optional[str] = Field(None)
+    id: Optional[int] = None
+    slug: Optional[str] = None
 
 class ArticlePermissionsData(BaseModel):
     id: int
     edit_permission: EditPermission
-    contributors: List[int]
+    contributors: list[int]

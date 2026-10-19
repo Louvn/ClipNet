@@ -9,7 +9,7 @@ export function AuthContextProvider({ children }) {
 
     const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
     const [user, setUser] = useState(null);
-    const [userLoading, setUserLoading] = useState(false); // for all sites to wait until user is there
+    const [userLoading, setUserLoading] = useState(true); // for all sites to wait until user is there
     const [rememberUser, setRememberUser] = useState(true);
 
     const isLoggedIn = !!jwt;

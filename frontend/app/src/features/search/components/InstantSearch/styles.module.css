@@ -11,7 +11,7 @@
 }
 .InstantSearch.Show {
     background-color: rgba(0,0,0,.2);
-    box-shadow: 0 0 4px var(--shadows);
+    box-shadow: 0 0 2px var(--shadows);
     pointer-events: auto;
 }
 

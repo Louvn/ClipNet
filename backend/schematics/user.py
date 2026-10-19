@@ -1,6 +1,7 @@
 from pydantic import BaseModel, constr
 from .content_type import ContentType
 from datetime import datetime
+from typing import Optional
 
 class UserCreateData(BaseModel):
     username: str
@@ -16,8 +17,8 @@ class UserOutData(BaseModel):
     bio: str | None
     language: str
 
-    total_articles: int = None
-    total_articles_contributed_to: int = None
+    total_articles: Optional[int] = None
+    total_articles_contributed_to: Optional[int] = None
 
 class SettingsData(BaseModel):
     language: str = None 

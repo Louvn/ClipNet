@@ -6,6 +6,14 @@ from fastapi import Depends
 
 def get_comments(article_id, db = Depends(get_db), user = Depends(get_current_user)):
 
-    comments = db.query(Comment).filter(Comment.article_id == article_id).all()
+    comments = (
+        db.query(Comment)
+            .filter(
+                Comment.article_id == article_id, 
+                Comment.parent_id.is_(None)
+                )
+            .order_by(Comment.created_at.desc())
+            .all()
+            )
 
     return [CommentOutData.model_validate(c, from_attributes=True) for c in comments]

@@ -5,7 +5,7 @@
     z-index: 9;
     background-color: var(--cards);
     border-radius: 8px;
-    box-shadow: 0 0 4px var(--shadows);
+    box-shadow: 0 0 2px var(--shadows);
     width: 248px;
     height: 60px;
     transform: translateX(300px);

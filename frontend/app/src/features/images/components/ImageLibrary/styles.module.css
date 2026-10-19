@@ -144,6 +144,9 @@
 .Uploader .DescriptionInput {
     height: auto;
 }
+.Uploader .UploadButton {
+    width: 100%;
+}
 
 @keyframes slideInUp {
   from {

@@ -87,7 +87,7 @@
 
 @media (min-width: 1200px) {
     .HomePage {
-        box-shadow: 0 0 4px var(--shadows);
+        box-shadow: 0 0 2px var(--shadows);
         border-radius: 20px;
         overflow: hidden;
         padding-top: 64px;

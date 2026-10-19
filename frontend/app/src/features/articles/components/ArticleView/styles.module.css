@@ -1,7 +1,7 @@
 .ArticleView {
     background-color: var(--cards);
     min-height: 70vh;
-    box-shadow: 0 0 4px var(--shadows);
+    box-shadow: 0 0 2px var(--shadows);
     border-radius: 8px;
     padding: 20px;
 }

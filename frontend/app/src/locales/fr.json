@@ -87,7 +87,8 @@
         "title": "Commentaires",
         "add": "Ajouter un commentaire",
         "post": "Envoyer",
-        "noComments": "Il n'y a encore aucun commentaire"
+        "noComments": "Il n'y a encore aucun commentaire",
+        "reply": "Répondre"
     },
 
     "image": { 

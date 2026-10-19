@@ -1,7 +1,7 @@
 .ListCard {
     background-color: var(--cards);
     min-height: 400px;
-    box-shadow: 0 0 4px var(--shadows);
+    box-shadow: 0 0 2px var(--shadows);
     border-radius: 8px;
     overflow: hidden;
     padding: 8px;

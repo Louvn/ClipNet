@@ -4,7 +4,7 @@
 .Settings {
     background-color: var(--cards);
     border-radius: 8px;
-    box-shadow: 0 0 4px var(--shadows);
+    box-shadow: 0 0 2px var(--shadows);
     padding: 32px;
     display: flex;
     flex-direction: column;

@@ -126,7 +126,7 @@ function ImageLibrary({ onUseImage, onClose, className }) {
                     className={styles.DescriptionInput}
                     />
 
-                <SimpleButton type="submit">{t("image.upload")}</SimpleButton>
+                <SimpleButton type="submit" className={styles.UploadButton}>{t("image.upload")}</SimpleButton>
 
             </form>}
 
