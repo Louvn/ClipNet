@@ -1,7 +1,7 @@
 from .search_articles import search_articles
 from .search_users import search_users
 from .sort_results import sort_results
-from ...schematics.content_type import ContentType
+from ...schematics.enum.content_type import ContentType
 from ...schematics.article import ArticleOutData
 from ...schematics.user import UserOutData
 

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, constr
-from .content_type import ContentType
+from .enum.content_type import ContentType
 from datetime import datetime
 from typing import Optional
 

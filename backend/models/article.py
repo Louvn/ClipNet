@@ -2,7 +2,7 @@ from ..database import Base
 from sqlalchemy import Column, Integer, ForeignKey, String, Boolean
 from sqlalchemy.orm import relationship
 from .revision import Revision
-from ..schematics.permissions import EditPermission
+from ..schematics.enum.permissions import EditPermission
 
 class Article(Base):
     __tablename__ = "articles"

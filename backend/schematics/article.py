@@ -1,9 +1,9 @@
 from pydantic import BaseModel, constr, field_validator
 from typing import Optional
-from .content_type import ContentType
+from .enum.content_type import ContentType
 from .revision import RevisionOutData
 from .user import UserOutData
-from .permissions import EditPermission
+from .enum.permissions import EditPermission
 
 class ArticleCreateData(BaseModel):
     title: constr(min_length=1, max_length=50)

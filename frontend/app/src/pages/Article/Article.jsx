@@ -51,7 +51,7 @@ function Article() {
             <section>
                 <h2>{t("common.details")}</h2>
 
-                <Detail text={t("article.revisionCounter", {count: article.revision_count})} icon={revisionIcon} />
+                <Detail text={t("article.revisionCounter", {count: article.revision_count})} icon={revisionIcon} link={`/wiki/${slug}/history`} />
                 <Detail 
                     text={t("article.createdByUser", {user: article.op.username, time: formatTimestamp(article.first_revision.created_at, t)})} 
                     icon={createdIcon} 

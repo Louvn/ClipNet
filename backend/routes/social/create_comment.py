@@ -2,6 +2,8 @@ from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
 from backend.schematics.comment import CommentCreateData
 from backend.models import Comment, Article
+from backend.core.notifications.notify import notify
+from backend.schematics.enum.notification_type import NotificationType
 from fastapi import Depends, HTTPException
 
 def create_comment(data: CommentCreateData, db = Depends(get_db), user = Depends(get_current_user)):
@@ -15,8 +17,11 @@ def create_comment(data: CommentCreateData, db = Depends(get_db), user = Depends
         content = data.content
     )
 
-    if data.parent_id:
-        parent = db.query(Comment).filter(Comment.id == data.parent_id, Comment.article_id == data.article_id).first()
+
+    # -- parent -- 
+    parent = db.query(Comment).filter(Comment.id == data.parent_id, Comment.article_id == data.article_id).first()
+
+    if parent:
 
         if not parent:
             raise HTTPException(404, "COMMENT_NOT_FOUND")
@@ -30,5 +35,17 @@ def create_comment(data: CommentCreateData, db = Depends(get_db), user = Depends
     db.commit()
 
     db.refresh(comment)
+
+
+    # -- notifications --
+
+    # notify op of article
+    if (existing_article.op_id != user.id and existing_article.op_id != parent.user_id):
+        notify(db, existing_article.op_id, NotificationType.article_comment, user.id, existing_article.id)
+
+    # notify user of parent comment
+    if (parent and parent.user_id != user.id):
+        notify(db, parent.user_id, NotificationType.comment_reply, user.id, existing_article.id)
+
 
     return comment

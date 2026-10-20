@@ -15,7 +15,7 @@
 
 .RightCorner {
     display: flex;
-    gap: 32px;
+    gap: 20px;
     align-items: center;
 }
 

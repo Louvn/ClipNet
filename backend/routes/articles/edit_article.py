@@ -4,6 +4,8 @@ from backend.database import get_db
 from backend.schematics.revision import RevisionCreateData
 from backend.models import Article, Revision
 from backend.core.security.permissions import is_user_allowed_to_edit
+from backend.core.notifications.notify import notify
+from backend.schematics.enum.notification_type import NotificationType
 from sqlalchemy import and_
 
 def edit_article(revision_data: RevisionCreateData, user = Depends(get_current_user), db = Depends(get_db)):
@@ -57,5 +59,9 @@ def edit_article(revision_data: RevisionCreateData, user = Depends(get_current_u
 
     db.commit()
     db.refresh(new_revision)
+
+    # notify op
+    if (user.id != existing_article_with_id.op_id):
+        notify(db, existing_article_with_id.op_id, NotificationType.article_edit, user.id, existing_article_with_id.id)
 
     return new_revision

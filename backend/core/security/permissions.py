@@ -1,4 +1,4 @@
-from backend.schematics.permissions import EditPermission
+from backend.schematics.enum.permissions import EditPermission
 from backend.models.contributor import Contributor
 from sqlalchemy import and_
 

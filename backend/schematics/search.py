@@ -1,7 +1,7 @@
 from pydantic import BaseModel, conint, Field
 from typing import List
-from .content_type import ContentType
-from .sorting_criteria import SortingCriteria
+from .enum.content_type import ContentType
+from .enum.sorting_criteria import SortingCriteria
 
 class SearchFilters(BaseModel):
 

@@ -1,5 +1,5 @@
 from backend.models.analytics import Analytics
-from backend.schematics.event_type import EventType
+from backend.schematics.enum.event_type import EventType
 from backend.core.analytics.session_start import session_start_handler
 
 def search_query_handler(db, user, query):
