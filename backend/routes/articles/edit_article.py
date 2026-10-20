@@ -1,11 +1,11 @@
 from fastapi import Depends, HTTPException
 from backend.core.security.jwt_helpers import get_current_user
 from backend.database import get_db
-from backend.schematics.revision import RevisionCreateData
+from backend.schemas.revision import RevisionCreateData
 from backend.models import Article, Revision
 from backend.core.security.permissions import is_user_allowed_to_edit
 from backend.core.notifications.notify import notify
-from backend.schematics.enum.notification_type import NotificationType
+from backend.schemas.enum.notification_type import NotificationType
 from sqlalchemy import and_
 
 def edit_article(revision_data: RevisionCreateData, user = Depends(get_current_user), db = Depends(get_db)):

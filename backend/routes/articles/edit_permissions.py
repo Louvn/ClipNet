@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException
 from ...database import get_db
 from ...core.security.jwt_helpers import get_current_user
 from ...models import Article, Contributor, User
-from ...schematics.article import ArticlePermissionsData
+from ...schemas.article import ArticlePermissionsData
 
 def edit_permissions(data: ArticlePermissionsData, db = Depends(get_db), user = Depends(get_current_user)):
 

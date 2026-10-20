@@ -1,4 +1,4 @@
-from backend.schematics.enum.notification_type import NotificationType
+from backend.schemas.enum.notification_type import NotificationType
 from backend.models import Notification
 
 def notify(db, user_id, notification_type, ctx_user_id, ctx_article_id):

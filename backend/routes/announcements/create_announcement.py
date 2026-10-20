@@ -2,7 +2,7 @@ from fastapi import Depends
 from backend.core.security.jwt_helpers import get_current_admin
 from backend.database import get_db
 from backend.models import Announcement
-from backend.schematics.announcement import AnnouncementCreateData
+from backend.schemas.announcement import AnnouncementCreateData
 
 def create_announcement(data: AnnouncementCreateData, user = Depends(get_current_admin), db = Depends(get_db)):
 

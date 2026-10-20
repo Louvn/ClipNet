@@ -1,7 +1,7 @@
 from fastapi import Depends
 from backend.core.security.jwt_helpers import get_current_user
 from backend.database import get_db
-from backend.schematics.user import SettingsData
+from backend.schemas.user import SettingsData
 
 def change_settings(data: SettingsData, user = Depends(get_current_user), db = Depends(get_db)):
 

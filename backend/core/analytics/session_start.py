@@ -1,5 +1,5 @@
 from backend.models.analytics import Analytics
-from backend.schematics.enum.event_type import EventType
+from backend.schemas.enum.event_type import EventType
 from backend.utils.db_lock import db_lock
 from datetime import datetime, timedelta, timezone
 

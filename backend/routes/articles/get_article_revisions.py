@@ -2,7 +2,7 @@ from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
 from fastapi import Depends, HTTPException
 from backend.models import Revision, Article
-from backend.schematics.article import ArticleGetData
+from backend.schemas.article import ArticleGetData
 
 def get_article_revisions(article_data = Depends(ArticleGetData), db = Depends(get_db), user = Depends(get_current_user)):
 

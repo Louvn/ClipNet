@@ -7,7 +7,7 @@ class UserCreateData(BaseModel):
     username: str
     password: constr(min_length=8)
 
-class UserOutData(BaseModel):
+class UserData(BaseModel):
     type: ContentType = ContentType.user
     id: int
     username: str

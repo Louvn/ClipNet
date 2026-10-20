@@ -3,7 +3,7 @@ from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
 from backend.models import Like, Article
 from backend.core.notifications.notify import notify
-from backend.schematics.enum.notification_type import NotificationType
+from backend.schemas.enum.notification_type import NotificationType
 
 def like(article_id: int, db = Depends(get_db), user = Depends(get_current_user)):
     

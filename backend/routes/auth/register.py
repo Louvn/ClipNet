@@ -1,6 +1,6 @@
 from fastapi import Depends, HTTPException
 from backend.database import get_db
-from backend.schematics.user import UserCreateData
+from backend.schemas.user import UserCreateData
 from backend.models import User
 from backend.utils.hash import hash
 from backend.core.security.jwt_helpers import get_current_admin

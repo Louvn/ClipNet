@@ -1,9 +1,9 @@
 from .search_articles import search_articles
 from .search_users import search_users
 from .sort_results import sort_results
-from ...schematics.enum.content_type import ContentType
-from ...schematics.article import ArticleOutData
-from ...schematics.user import UserOutData
+from ...schemas.enum.content_type import ContentType
+from ...schemas.article import ArticleData
+from ...schemas.user import UserData
 
 # All Types with their own function to search
 SEARCH_FUNCTIONS = {
@@ -12,9 +12,9 @@ SEARCH_FUNCTIONS = {
 }
 
 # All Types with validation schematic
-VALIDATION_SCHEMATICS = {
-    ContentType.article:  ArticleOutData,
-    ContentType.user: UserOutData
+VALIDATION_schemas = {
+    ContentType.article:  ArticleData,
+    ContentType.user: UserData
 }
 
 
@@ -34,7 +34,7 @@ def search(query, filters, sort_by, offset, length, db):
 
         # validate & add to all the results
         results.extend(
-            [VALIDATION_SCHEMATICS[type].model_validate(r, from_attributes=True) for r in results_of_type]
+            [VALIDATION_schemas[type].model_validate(r, from_attributes=True) for r in results_of_type]
         )
 
 

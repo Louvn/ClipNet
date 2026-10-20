@@ -1,4 +1,4 @@
-from ...schematics.enum.content_type import ContentType
+from ...schemas.enum.content_type import ContentType
 
 # This file provides dictionaries for all use cases in the search
 # every dict contains the right columns for the specific type

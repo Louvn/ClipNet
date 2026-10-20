@@ -1,21 +1,21 @@
 from pydantic import BaseModel, constr, field_validator
 from typing import Optional
 from .enum.content_type import ContentType
-from .revision import RevisionOutData
-from .user import UserOutData
+from .revision import RevisionData
+from .user import UserData
 from .enum.permissions import EditPermission
 
 class ArticleCreateData(BaseModel):
     title: constr(min_length=1, max_length=50)
     content: constr(min_length=1)
 
-class ArticleOutData(BaseModel):
+class ArticleData(BaseModel):
     type: ContentType = ContentType.article
     id: int
     slug: str
-    op: UserOutData
-    current_revision: RevisionOutData
-    first_revision: RevisionOutData
+    op: UserData
+    current_revision: RevisionData
+    first_revision: RevisionData
     revision_count: Optional[int] = None
     edit_permission: int
     contributors: Optional[list[int]] = None

@@ -1,9 +1,9 @@
 from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
-from backend.schematics.comment import CommentCreateData
+from backend.schemas.comment import CommentCreateData
 from backend.models import Comment, Article
 from backend.core.notifications.notify import notify
-from backend.schematics.enum.notification_type import NotificationType
+from backend.schemas.enum.notification_type import NotificationType
 from fastapi import Depends, HTTPException
 
 def create_comment(data: CommentCreateData, db = Depends(get_db), user = Depends(get_current_user)):

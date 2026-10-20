@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException
 from backend.core.security.jwt_helpers import get_current_user
 from backend.database import get_db
 from backend.models import Report, Article
-from backend.schematics.report import ReportArticleData
+from backend.schemas.report import ReportArticleData
 
 def report_article(data: ReportArticleData, user = Depends(get_current_user), db = Depends(get_db)):
 

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, constr
-from .user import UserOutData
+from .user import UserData
 from datetime import datetime
 
 class CommentCreateData(BaseModel):
@@ -7,10 +7,10 @@ class CommentCreateData(BaseModel):
     parent_id: int = None
     content: constr(min_length=1, max_length=255)
 
-class CommentOutData(BaseModel):
+class CommentData(BaseModel):
     id: int
     article_id: int
-    user: UserOutData
+    user: UserData
     content: str
     created_at: datetime
-    replies: list[CommentOutData]
+    replies: list[CommentData]

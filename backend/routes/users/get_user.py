@@ -2,14 +2,14 @@ from fastapi import Depends
 from ...core.security.jwt_helpers import get_current_user
 from ...database import get_db
 from ...models import User, Article, Revision
-from ...schematics.user import UserOutData
+from ...schemas.user import UserData
 from sqlalchemy import and_, distinct
 
 def get_user(user_id, user = Depends(get_current_user), db = Depends(get_db)):
 
     user = db.query(User).filter(User.id == user_id).first()
 
-    res = UserOutData.model_validate(user, from_attributes=True)
+    res = UserData.model_validate(user, from_attributes=True)
 
     # add aditionals
     res.total_articles = db.query(Article).filter(Article.op_id == user_id, Article.is_deleted.is_(False)).count()

@@ -3,7 +3,7 @@ from .user_index import user_index
 from .get_user import get_user
 from .settings.get_settings import get_settings
 from .settings.change_settings import change_settings
-from backend.schematics.user import SettingsData
+from backend.schemas.user import SettingsData
 
 router = APIRouter(tags=["users"])
 

@@ -1,5 +1,5 @@
 from .ranking import rank
-from ...schematics.enum.sorting_criteria import SortingCriteria
+from ...schemas.enum.sorting_criteria import SortingCriteria
 from .dynamic_columns import *
 from ...utils.deep_getattr import deep_getattr
 

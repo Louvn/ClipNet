@@ -4,8 +4,8 @@ from sqlalchemy import and_
 from backend.database import get_db
 from backend.core.security.jwt_helpers import get_current_user
 from backend.core.slugs.generate_slug import generate_unique_slug
-from backend.schematics.article import ArticleCreateData, ArticleOutData
-from backend.schematics.revision import RevisionOutData
+from backend.schemas.article import ArticleCreateData, ArticleData
+from backend.schemas.revision import RevisionData
 from backend.models.article import Article
 from backend.models.revision import Revision
 

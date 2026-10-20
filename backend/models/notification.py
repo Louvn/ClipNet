@@ -1,7 +1,7 @@
 from ..database import Base
 from sqlalchemy import Column, Integer, Enum, ForeignKey, DateTime
 from sqlalchemy.sql import func
-from backend.schematics.enum.notification_type import NotificationType
+from backend.schemas.enum.notification_type import NotificationType
 
 class Notification(Base):
     __tablename__ = "notifications"

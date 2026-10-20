@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from backend.database import get_db
 from backend.models import User
 from backend.utils.hash import verify
-from backend.schematics.user import UserOutData
+from backend.schemas.user import UserData
 
 SECRET = os.getenv("JWT_SECRET")
 ALGORITHM = os.getenv("JWT_ALGORITHM")
@@ -21,4 +21,4 @@ def login(form: OAuth2PasswordRequestForm = Depends(), db = Depends(get_db)):
     payload = {"sub": form.username, "exp": datetime.now(timezone.utc) + timedelta(days=30)}
     token = jwt.encode(payload, SECRET, algorithm=ALGORITHM)
 
-    return {"access_token": token, "token_type": "bearer", "user": UserOutData.model_validate(existing_user, from_attributes=True)}
+    return {"access_token": token, "token_type": "bearer", "user": UserData.model_validate(existing_user, from_attributes=True)}

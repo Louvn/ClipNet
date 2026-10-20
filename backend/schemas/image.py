@@ -1,10 +1,10 @@
 from pydantic import BaseModel, constr
-from .user import UserOutData
+from .user import UserData
 from datetime import datetime
 
-class ImageOutData(BaseModel):
+class ImageData(BaseModel):
     id: int
-    user: UserOutData
+    user: UserData
     created_at: datetime
     url: str
     description: constr(max_length=255)

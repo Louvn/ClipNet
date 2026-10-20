@@ -1,5 +1,5 @@
 from backend.database import Base
-from backend.schematics.enum.event_type import EventType
+from backend.schemas.enum.event_type import EventType
 from sqlalchemy import Column, Integer, ForeignKey, DateTime, Enum, String, UniqueConstraint
 from sqlalchemy.sql import func
 

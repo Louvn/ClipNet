@@ -7,7 +7,7 @@ class AnnouncementCreateData(BaseModel):
     link: constr(max_length=255) | None = None
     expires_at: datetime
 
-class AnnouncementOutData(BaseModel):
+class AnnouncementData(BaseModel):
     id: int
     title: constr(min_length=3, max_length=50)
     message: constr(max_length=500)
